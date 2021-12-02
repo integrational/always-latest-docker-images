@@ -24,6 +24,7 @@ jobs:
       - name: aws-eks-kube-docker-cli
         uses: docker/build-push-action@v2
         with:
+          context:  ./aws-eks-kube-docker-cli
           file:     aws-eks-kube-docker-cli/Dockerfile
           tags:     integrational/aws-eks-kube-docker-cli
           no-cache: true
@@ -32,6 +33,7 @@ jobs:
       - name: eks-client
         uses: docker/build-push-action@v2
         with:
+          context:  ./eks-client
           file:     eks-client/Dockerfile
           tags:     integrational/eks-client
           no-cache: true
