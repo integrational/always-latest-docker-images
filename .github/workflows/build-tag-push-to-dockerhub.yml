@@ -1,4 +1,4 @@
-name: Build and Push to Docker Hub
+name: 'All Images: Build and Push to Docker Hub'
 
 on:
   schedule:
