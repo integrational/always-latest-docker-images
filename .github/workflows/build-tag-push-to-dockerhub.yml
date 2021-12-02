@@ -41,6 +41,14 @@ jobs:
           no-cache: true
           pull:     true
           push:     true
+      - name: bat-cli
+        uses: docker/build-push-action@v2
+        with:
+          context:  bat-cli
+          tags:     integrational/bat-cli
+          no-cache: true
+          pull:     true
+          push:     true
       - name: eks-client
         uses: docker/build-push-action@v2
         with:
