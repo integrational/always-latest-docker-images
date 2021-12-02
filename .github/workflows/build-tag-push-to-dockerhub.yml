@@ -1,0 +1,37 @@
+name: Build and Push to Docker Hub
+
+on:
+  schedule:
+    - cron: '0 2 * * 0'                                   # 02:00 in the morning every Sunday
+  push:
+    branches:
+      - master
+    paths:
+      - '**/Dockerfile'                                   # or when any Dockerfile changes
+      - .github/workflows/build-tag-push-to-dockerhub.yml # or when this file changes
+
+jobs:
+  build-tag-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1 
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN    }}
+      - name: aws-eks-kube-docker-cli
+        uses: docker/build-push-action@v2
+        with:
+          context:  aws-eks-kube-docker-cli
+          tags:     integrational/aws-eks-kube-docker-cli
+          no-cache: true
+          pull:     true
+          push:     true
+      - name: eks-client
+        uses: docker/build-push-action@v2
+        with:
+          context:  eks-client
+          tags:     integrational/eks-client
+          no-cache: true
+          pull:     true
+          push:     true
