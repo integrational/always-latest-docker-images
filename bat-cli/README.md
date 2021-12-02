@@ -7,7 +7,7 @@ Docker image with [MuleSoft's BAT CLI](https://docs.mulesoft.com/api-functional-
 Default workdir is `/work`.
 
 ```
-docker run --rm -t \
-           -v $(pwd):/work        \
+docker run --pull always --rm -t \
+           -v $(pwd):/work       \
            integrational/bat-cli
 ```

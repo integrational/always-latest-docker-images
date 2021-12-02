@@ -14,7 +14,7 @@ Linux (Ubuntu) base image with
 
 *Example:* **run bash** in the container with an already configured AWS CLI context:
 ```
-docker run --rm -it                                     \
+docker run --pull always --rm -it                       \
            -e 'AWS_ACCESS_KEY_ID=...'                   \
            -e 'AWS_SECRET_ACCESS_KEY=...'               \
            -e 'AWS_DEFAULT_REGION=...'                  \
@@ -31,7 +31,7 @@ kubectl get all
 
 *Example:* **run a script** `./script.sh` (containing CLI commands like the above) in the container with an already configured AWS CLI context, then return:
 ```
-docker run --rm -t                                      \
+docker run --pull always --rm -t                        \
            -e 'AWS_ACCESS_KEY_ID=...'                   \
            -e 'AWS_SECRET_ACCESS_KEY=...'               \
            -e 'AWS_DEFAULT_REGION=...'                  \

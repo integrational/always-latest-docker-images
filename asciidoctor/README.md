@@ -11,7 +11,7 @@ Uses the official Asciidoctor Docker image https://hub.docker.com/r/asciidoctor/
 
 Otherwise behaves like the base image - so see the docs over there. But in short, for example:
 ```
-docker run --rm -t              \
-           -v $(pwd):/documents \
-           integrational/asciidoctor:latest asciidoctor-pdf index.adoc
+docker run --pull always --rm -t     \
+           -v $(pwd):/documents      \
+           integrational/asciidoctor asciidoctor-pdf index.adoc
 ```
