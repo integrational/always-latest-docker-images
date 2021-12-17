@@ -20,7 +20,7 @@ Simple usage to execute a CLI command, e.g. `api-mgr api list -o json` against t
 docker run --pull always --rm -it integrational/anypoint-cli --username=user --password=pwd --environment=Staging api-mgr api list -o json
 ```
 
-=== Recommended usage
+### Recommended usage
 
 In `.bashrc` or similar, define an alias for running the Docker container:
 
