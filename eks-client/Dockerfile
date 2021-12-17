@@ -9,8 +9,10 @@ WORKDIR /tmp
 
 # Install basic set of packages needed in the following
 RUN apt-get update                             \
+ && apt-get upgrade -y                         \
  && apt-get install -y --no-install-recommends \
-            curl unzip groff ca-certificates apt-transport-https gnupg-agent software-properties-common less jq
+            curl unzip groff ca-certificates apt-transport-https gnupg-agent software-properties-common less jq \
+ && apt-get clean
 
 # Either: Install latest version of AWS CLI version 1
 RUN apt-get install -y python3 python3-pip \

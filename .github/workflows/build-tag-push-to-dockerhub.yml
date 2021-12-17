@@ -25,6 +25,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN    }}
+      - name: anypoint-cli
+        uses: docker/build-push-action@v2
+        with:
+          context:  anypoint-cli
+          tags:     integrational/anypoint-cli
+          no-cache: true
+          pull:     true
+          push:     true
       - name: asciidoctor
         uses: docker/build-push-action@v2
         with:
