@@ -1,4 +1,5 @@
 FROM asciidoctor/docker-asciidoctor:1.16
+# currently fails:
 #FROM asciidoctor/docker-asciidoctor:latest
 MAINTAINER gerald@integrational.eu
 
