@@ -15,11 +15,10 @@ MAINTAINER gerald@integrational.eu
 # upgrade and install
 RUN apk update                                            \
  && apk upgrade                                           \
- && apk add python2 --no-cache --purge                    \
  && gem install pygments.rb --no-document --clear-sources \
  && rm -rf /var/cache/apk/*                               \
- && rm -rf /root/.gem
-# 'gem cleanup' failed in the above RUN, removed it
+ && rm -rf /root/.gem                                     \
+ && gem cleanup
 
 # behave like base image
 WORKDIR /documents
